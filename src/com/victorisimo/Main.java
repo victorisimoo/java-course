@@ -1,12 +1,10 @@
 package com.victorisimo;
 
 import com.victorisimo.content.Movie;
-import com.victorisimo.platform.User;
+import com.victorisimo.platform.Platform;
 import com.victorisimo.util.ScannerUtils;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Scanner;
 
 public class Main {
 
@@ -14,7 +12,9 @@ public class Main {
     public static final String NAME_PLATFORM = "Platzi Play";
 
     public static void main(String[] args) {
-        System.out.println(NAME_PLATFORM+": v" + VERSION);
+        System.out.println(NAME_PLATFORM + ": v" + VERSION);
+
+        Platform platform = new Platform(NAME_PLATFORM);
 
         /* Scanner scanner = new Scanner(System.in);
         System.out.print("What is your name?: ");
@@ -24,20 +24,27 @@ public class Main {
         System.out.println("Hi " + name + " " + years + " this is Platzi Play!");*/
 
         String titleMovie = ScannerUtils.readStringInput("What do you want to watch today");
-        System.out.println("You want to watch: " + titleMovie);
         int durationMovie = ScannerUtils.readIntInput("How long is the movie (in minutes)");
-        System.out.println("The movie lasts: " + durationMovie + " minutes");
         double ratingMovie = ScannerUtils.readDoubleInput("How do you rate the movie (0 to 5)");
-        System.out.println("You rated the movie: " + ratingMovie + "/ 5");
 
         Movie movie = new Movie();
-        movie.title = titleMovie;
-        movie.yearofRelease = LocalDate.of(1995, 7, 15);
-        movie.gender = "Action";
-        movie.rating = ratingMovie;
-        movie.duration = durationMovie;
-        movie.ratingMovie(4.5);
-        System.out.println(movie.toString());
+        movie.setTitle(titleMovie);
+        movie.setDuration(durationMovie);
+        movie.setYearofRelease(LocalDate.of(1995, 7, 15));
+        movie.setGender("Action");
+        movie.setRating(ratingMovie);
+
+        Movie movie2 = new Movie("The Matrix", "A computer hacker learns about the true nature of his reality and his role in the war against its controllers.", 136, "Science Fiction", 1999, 4.7, true);
+
+        platform.addMovie(movie);
+        platform.addMovie(movie2);
+
+        platform.removeMovie(movie2);
+
+        System.out.println("Movies saves: ");
+        platform.getMovieList();
+        System.out.println("Movies count: "+ (platform.getMovies()).size());
+        //System.out.println(movie.toString());
         //System.out.println(movie.getMovieInformation());
 
        /* User user = new User();

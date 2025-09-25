@@ -12,14 +12,14 @@ public class ScannerUtils {
     }
 
     public static int readIntInput(String text) {
-        System.out.println(text + ": ");
+        System.out.print(text + ": ");
         int data = SCANNER.nextInt();
         SCANNER.nextLine(); // Clear the buffer
         return data;
     }
 
     public static double readDoubleInput(String text) {
-        System.out.println(text + ": ");
+        System.out.print(text + ": ");
         double data = SCANNER.nextDouble();
         SCANNER.nextLine(); // Clear the buffer
         return data;

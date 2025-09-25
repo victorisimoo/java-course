@@ -8,11 +8,11 @@ import java.time.LocalDateTime;
     * User class to represent a user in the streaming platform
  */
 public class User {
-    public String name;
-    public String email;
-    public String password;
-    public boolean isPremium;
-    public LocalDateTime subscriptionDate;
+    private String name;
+    private String email;
+    private String password;
+    private boolean isPremium;
+    private LocalDateTime subscriptionDate;
 
     public User(){
 
@@ -24,11 +24,12 @@ public class User {
         this.email = email;
         this.password = password;
         this.isPremium = isPremium;
+        this.subscriptionDate = LocalDateTime.now();
     }
 
     public void watchContent(Movie movie){
-        if(movie.available || isPremium){
-            System.out.println(name + " is watching: " + movie.title);
+        if(movie.isAvailable() || isPremium){
+            System.out.println(name + " is watching: " + movie.getTitle());
         } else {
             System.out.println("Sorry " + name + ", this content is not available for your subscription level.");
         }
@@ -43,5 +44,45 @@ public class User {
     public void unsubscribeFromPremium(){
         isPremium = false;
         System.out.println("You have unsubscribed from premium, " + name + ".");
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isPremium() {
+        return isPremium;
+    }
+
+    public void setPremium(boolean premium) {
+        isPremium = premium;
+    }
+
+    public LocalDateTime getSubscriptionDate() {
+        return subscriptionDate;
+    }
+
+    public void setSubscriptionDate(LocalDateTime subscriptionDate) {
+        this.subscriptionDate = subscriptionDate;
     }
 }
