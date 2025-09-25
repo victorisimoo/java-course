@@ -50,4 +50,15 @@ public class Movie {
         }
     }
 
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", duration=" + duration + '\'' +
+                ", gender='" + gender + '\'' +
+                ", year_of_release=" + year_of_release + '\'' +
+                ", rating=" + rating + '\'' +
+                ", available=" + available +
+                '}';
+    }
 }
