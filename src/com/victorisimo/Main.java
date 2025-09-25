@@ -9,8 +9,12 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
+
+    public static final String VERSION = "1.0.0";
+    public static final String NAME_PLATFORM = "Platzi Play";
+
     public static void main(String[] args) {
-        System.out.println("----- Platzi Play 🍿 -----");
+        System.out.println(NAME_PLATFORM+": v" + VERSION);
 
         /* Scanner scanner = new Scanner(System.in);
         System.out.print("What is your name?: ");
@@ -26,10 +30,6 @@ public class Main {
         double ratingMovie = ScannerUtils.readDoubleInput("How do you rate the movie (0 to 5)");
         System.out.println("You rated the movie: " + ratingMovie + "/ 5");
 
-
-
-
-
         Movie movie = new Movie();
         movie.title = titleMovie;
         movie.yearofRelease = LocalDate.of(1995, 7, 15);
@@ -44,8 +44,6 @@ public class Main {
         user.name = "Victor";
         user.subscriptionDate = LocalDateTime.of(2024, 6, 20, 10, 0);
         user.isPremium = true;*/
-        //user.watchContent(movie);
-        //System.out.println(user.subscriptionDate);
 
     }
 }
